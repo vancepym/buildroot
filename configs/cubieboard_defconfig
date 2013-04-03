@@ -237,14 +237,12 @@ BR2_PACKAGE_BUSYBOX_CONFIG="package/busybox/busybox-1.21.x.config"
 # BR2_PACKAGE_LATENCYTOP is not set
 # BR2_PACKAGE_LMBENCH is not set
 # BR2_PACKAGE_LTP_TESTSUITE is not set
+# BR2_PACKAGE_LTTNG_MODULES is not set
 # BR2_PACKAGE_LTRACE is not set
 # BR2_PACKAGE_MEMSTAT is not set
 # BR2_PACKAGE_NETPERF is not set
 # BR2_PACKAGE_OPROFILE is not set
-
-#
-# perf only available if Linux kernel is enabled, and requires largefile support
-#
+# BR2_PACKAGE_PERF is not set
 # BR2_PACKAGE_RAMSPEED is not set
 # BR2_PACKAGE_RT_TESTS is not set
 # BR2_PACKAGE_STRACE is not set
@@ -298,6 +296,7 @@ BR2_PACKAGE_BUSYBOX_CONFIG="package/busybox/busybox-1.21.x.config"
 # BR2_PACKAGE_FBV is not set
 # BR2_PACKAGE_FB_TEST_APP is not set
 # BR2_PACKAGE_IMAGEMAGICK is not set
+# BR2_PACKAGE_LINUX_FUSION is not set
 # BR2_PACKAGE_SDL is not set
 
 #
@@ -394,10 +393,6 @@ BR2_PACKAGE_BUSYBOX_CONFIG="package/busybox/busybox-1.21.x.config"
 # BR2_PACKAGE_OFONO is not set
 # BR2_PACKAGE_OPEN2300 is not set
 # BR2_PACKAGE_OPENOCD is not set
-
-#
-# owl-linux requires a Linux kernel
-#
 
 #
 # owl-linux is only supported on ARM9 architecture with EABI
@@ -551,10 +546,7 @@ BR2_PACKAGE_BUSYBOX_CONFIG="package/busybox/busybox-1.21.x.config"
 # Hardware handling
 #
 # BR2_PACKAGE_CCID is not set
-
-#
-# imx-lib needs an imx-specific kernel to be built
-#
+# BR2_PACKAGE_IMX_LIB is not set
 # BR2_PACKAGE_LCDAPI is not set
 # BR2_PACKAGE_LIBAIO is not set
 
@@ -593,10 +585,7 @@ BR2_PACKAGE_BUSYBOX_CONFIG="package/busybox/busybox-1.21.x.config"
 # BR2_PACKAGE_LIBEBML is not set
 # BR2_PACKAGE_LIBFSLCODEC is not set
 # BR2_PACKAGE_LIBFSLPARSER is not set
-
-#
-# libfslvpuwrap needs an imx-specific kernel to be built
-#
+# BR2_PACKAGE_LIBFSLVPUWRAP is not set
 # BR2_PACKAGE_LIBMATROSKA is not set
 # BR2_PACKAGE_LIBMMS is not set
 # BR2_PACKAGE_LIBMPEG2 is not set
@@ -753,6 +742,7 @@ BR2_PACKAGE_BUSYBOX_CONFIG="package/busybox/busybox-1.21.x.config"
 # BR2_PACKAGE_HOSTAPD is not set
 # BR2_PACKAGE_HTTPING is not set
 # BR2_PACKAGE_IFTOP is not set
+# BR2_PACKAGE_IGH_ETHERCAT is not set
 # BR2_PACKAGE_INADYN is not set
 # BR2_PACKAGE_IPERF is not set
 # BR2_PACKAGE_IPROUTE2 is not set
@@ -909,10 +899,7 @@ BR2_TARGET_ROOTFS_EXT2_NONE=y
 # BR2_TARGET_ROOTFS_EXT2_GZIP is not set
 # BR2_TARGET_ROOTFS_EXT2_BZIP2 is not set
 # BR2_TARGET_ROOTFS_EXT2_LZMA is not set
-
-#
-# initramfs requires a Linux kernel to be built
-#
+# BR2_TARGET_ROOTFS_INITRAMFS is not set
 # BR2_TARGET_ROOTFS_JFFS2 is not set
 # BR2_TARGET_ROOTFS_ROMFS is not set
 # BR2_TARGET_ROOTFS_SQUASHFS is not set
@@ -929,13 +916,61 @@ BR2_TARGET_ROOTFS_TAR_OPTIONS=""
 #
 # BR2_TARGET_BAREBOX is not set
 # BR2_TARGET_MXS_BOOTLETS is not set
-# BR2_TARGET_UBOOT is not set
+BR2_TARGET_UBOOT=y
+BR2_TARGET_UBOOT_BOARDNAME="cubieboard"
+# BR2_TARGET_UBOOT_2013_01 is not set
+# BR2_TARGET_UBOOT_2012_10 is not set
+# BR2_TARGET_UBOOT_2012_07 is not set
+# BR2_TARGET_UBOOT_2012_04 is not set
+# BR2_TARGET_UBOOT_2011_12 is not set
+# BR2_TARGET_UBOOT_CUSTOM_TARBALL is not set
+BR2_TARGET_UBOOT_CUSTOM_GIT=y
+BR2_TARGET_UBOOT_VERSION="fc40799"
+BR2_TARGET_UBOOT_CUSTOM_PATCH_DIR=""
+BR2_TARGET_UBOOT_CUSTOM_GIT_REPO_URL="https://github.com/linux-sunxi/u-boot-sunxi.git"
+BR2_TARGET_UBOOT_CUSTOM_GIT_VERSION="fc40799"
+# BR2_TARGET_UBOOT_FORMAT_AIS is not set
+BR2_TARGET_UBOOT_FORMAT_BIN=y
+# BR2_TARGET_UBOOT_FORMAT_IMG is not set
+# BR2_TARGET_UBOOT_FORMAT_NAND_BIN is not set
+# BR2_TARGET_UBOOT_FORMAT_KWB is not set
+# BR2_TARGET_UBOOT_OMAP_IFT is not set
+# BR2_TARGET_UBOOT_NETWORK is not set
+BR2_TARGET_UBOOT_SPL=y
+BR2_TARGET_UBOOT_SPL_NAME="spl/sunxi-spl.bin"
 # BR2_TARGET_XLOADER is not set
 
 #
 # Kernel
 #
-# BR2_LINUX_KERNEL is not set
+BR2_LINUX_KERNEL=y
+# BR2_LINUX_KERNEL_3_7 is not set
+# BR2_LINUX_KERNEL_CUSTOM_VERSION is not set
+# BR2_LINUX_KERNEL_CUSTOM_TARBALL is not set
+BR2_LINUX_KERNEL_CUSTOM_GIT=y
+BR2_LINUX_KERNEL_CUSTOM_GIT_REPO_URL="https://github.com/linux-sunxi/linux-sunxi.git"
+BR2_LINUX_KERNEL_CUSTOM_GIT_VERSION="sunxi-3.0"
+BR2_LINUX_KERNEL_VERSION="sunxi-3.0"
+BR2_LINUX_KERNEL_PATCH=""
+BR2_LINUX_KERNEL_USE_DEFCONFIG=y
+# BR2_LINUX_KERNEL_USE_CUSTOM_CONFIG is not set
+BR2_LINUX_KERNEL_DEFCONFIG="sun4i"
+BR2_LINUX_KERNEL_UBOOT_IMAGE=y
+BR2_LINUX_KERNEL_UIMAGE=y
+# BR2_LINUX_KERNEL_APPENDED_UIMAGE is not set
+# BR2_LINUX_KERNEL_ZIMAGE is not set
+# BR2_LINUX_KERNEL_APPENDED_ZIMAGE is not set
+# BR2_LINUX_KERNEL_VMLINUX is not set
+# BR2_LINUX_KERNEL_IMAGE_TARGET_CUSTOM is not set
+# BR2_LINUX_KERNEL_DTS_SUPPORT is not set
+# BR2_LINUX_KERNEL_INSTALL_TARGET is not set
+
+#
+# Linux Kernel Extensions
+#
+# BR2_LINUX_KERNEL_EXT_XENOMAI is not set
+# BR2_LINUX_KERNEL_EXT_OCF_LINUX is not set
+# BR2_LINUX_KERNEL_EXT_RTAI is not set
 
 #
 # Legacy config options
