@@ -1,4 +1,4 @@
-cubieboard and cubieboard2
+cubieboard, cubieboard2 and cubietruck
 
 -----
 Intro
@@ -13,10 +13,15 @@ For more information, please see http://linux-sunxi.org/FirstSteps
 How to build it
 ---------------
 
-You need to use the cubieboard_defconfig or cubieboard2_defconfig, to do so:
+You need to use the cubie*_defconfig, to do so:
+cubieboard1 (a.k.a. cubieboard):
  * make cubieboard_defconfig
-or
+
+cubieboard2:
  * make cubieboard2_defconfig
+
+cubieboard3 (a.k.a. cubietruck):
+ * make cubietruck_defconfig
 
 And to compile:
  * make
@@ -31,10 +36,10 @@ After building, you should obtain this tree:
     +-- rootfs.tar
     +-- boot.scr
     +-- script.bin
-    +-- sunxi-spl.bin
     +-- u-boot.bin
-    +-- u-boot-sunxi-with-spl.bin (optional)
-    `-- uImage
+    +-- u-boot-env.bin
+    +-- u-boot-sunxi-with-spl.bin
+    +-- uImage
 
 --------------------------
 How setting up the SD card
@@ -54,9 +59,21 @@ Use dmesg to find out where the SD card is attached in the /dev tree
 where:
  - <images_dir> is the directory containing the generated files (usually
    output/images)
- - <device> is the device file of the SD card (usually /dev/sdX)
+ - <device> is the device file of the SD card (usually /dev/mmcblk0 or /dev/sdX)
 
 
+Alternately, you may set up the SD card only to boot from the network:
+
+# sudo ./mkcubiecard.sh <images_dir> <device> [netboot]
+
+where:
+ - <images_dir> and <device> as above
+ - [netboot] specify whether to boot from network (should yes, if you want)
+
+ATTENTION: This operation will keep the partition table of your SD card, will not
+           write any data to the existing partitions. However, if the first
+           partition ahead of the 1MB offset, it will be damaged.
 
 --
+Scott Fan <fancp2007@gmail.com>
 Carlo Caione <carlo.caione@gmail.com>
