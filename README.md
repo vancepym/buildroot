@@ -17,7 +17,25 @@ http://git.buildroot.net/buildroot/
 
     $ git clone git://git.buildroot.net/buildroot
 
-## Customizing for Cubieboard
+## Customizing for Cubieboard (2015/07/02)
+
+### Cubieboard1
+    $ git clone https://github.com/vancepym/buildroot.git -b cubie/master
+    $ make cubieboard_defconfig
+    $ make
+
+### Cubieboard2
+    $ git clone https://github.com/vancepym/buildroot.git -b cubie/master
+    $ make cubieboard2_defconfig
+    $ make
+
+### Cubieboard3
+    $ git clone https://github.com/vancepym/buildroot.git -b cubie/master
+    $ make cubietruck_defconfig
+    $ make
+
+## Customizing for Cubieboard (2013/04/03)
     $ git clone https://github.com/vancepym/buildroot.git -b cubieboard/2013.02.x
     $ make cubieboard_defconfig
     $ make
+
