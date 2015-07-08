@@ -1,0 +1,57 @@
+config BR2_PACKAGE_XDRIVER_XF86_VIDEO_FBTURBO
+	bool "xf86-video-fbturbo"
+	select BR2_PACKAGE_LIBDRI2
+	select BR2_PACKAGE_XPROTO_FONTSPROTO
+	select BR2_PACKAGE_XPROTO_RANDRPROTO
+	select BR2_PACKAGE_XPROTO_RENDERPROTO
+	select BR2_PACKAGE_XPROTO_VIDEOPROTO
+	select BR2_PACKAGE_XPROTO_XPROTO
+	select BR2_PACKAGE_XPROTO_XF86DRIPROTO
+	help
+	  video driver, primarily optimized for the devices powered
+	  by the Allwinner SoC (A10, A13, A20). It can use some of
+	  the 2D/3D hardware acceleration features.
+
+	  And because this driver is based on xf86-video-fbdev (with none of the
+	  original features stripped), it actually supports all the same hardware
+	  as xf86-video-fbdev. Essentially, xf86-video-fbturbo can be just used as
+	  a drop-in replacement and run on practically any Linux system. There will
+	  be no real difference on x86, but any ARM based system should see better
+	  performance thanks to some additional optimizations (the elimination of
+	  ShadowFB layer, ARM NEON/VFP code for dealing with uncached framebuffer
+	  reads, automatic backing store management for faster window moves).
+
+	  == 2D graphics acceleration features ==
+
+	  Hardware accelerated window moving/scrolling on Allwinner A10/A20 (using the
+	  G2D Mixer Processor).
+
+	  Hardware accelerated window moving/scrolling on Raspberry Pi (using the BCM2835
+	  DMA Controller)
+
+	  == 3D graphics acceleration features ==
+
+	  First a disclaimer to prevent any possible misunderstanding. The Xorg DDX
+	  drivers (neither this one, nor the others) do not do any actual 3D acceleration
+	  by themselves. They are nothing else but just a glue between the 3D drivers
+	  and the X11 window system. Still a poorly implemented glue can easily become
+	  the source of major performance problems. So it's important to do it right.
+
+	  This DDX driver provides integration for Mali 400 GPU into Xorg. Any device
+	  with Mali 400 should have a properly working OpenGL ES 2.0 acceleration if
+	  it has Mali/UMP modules in the Linux kernel and libMali.so proprietary
+	  binary blob installed in the system. Additionally, the hardware overlay
+	  feature of Allwinner A10/A13/A20 display controller allows to support
+	  zero-copy OpenGL ES buffer flipping without tearing. The rest of the
+	  devices with Mali 400 hardware (Exynos4, Rockchip, ...) are expected to
+	  have roughly the same 3D performance as when using the reference vendor
+	  provided Xorg DDX driver xf86-video-mali.
+
+	  == Video acceleration features ==
+
+	  XV overlay is supported on Allwinner A10/A13/A20.
+
+	  == Installation instructions ==
+
+	  https://github.com/ssvb/xf86-video-fbturbo/wiki/Installation
+
