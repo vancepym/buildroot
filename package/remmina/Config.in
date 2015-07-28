@@ -1,0 +1,24 @@
+config BR2_PACKAGE_REMMINA
+	bool "remmina"
+	depends on BR2_PACKAGE_LIBGTK3
+	depends on BR2_USE_MMU # libvncserver depends on BR2_USE_MMU
+	depends on BR2_USE_WCHAR # freerdp
+	depends on !BR2_STATIC_LIBS # freerdp
+	depends on BR2_TOOLCHAIN_HAS_THREADS # freerdp
+	select BR2_PACKAGE_LIBGCRYPT
+	select BR2_PACKAGE_LIBSSH
+	select BR2_PACKAGE_LIBVNCSERVER
+	select BR2_PACKAGE_FREERDP
+	select BR2_PACKAGE_GETTEXT if BR2_NEEDS_GETTEXT_IF_LOCALE
+	help
+	  Remmina is a remote desktop client written in GTK+, aiming to be
+	  useful for system administrators and travellers, who need to work
+	  with lots of remote computers in front of either large monitors
+	  or tiny netbooks.
+
+	  Remmina supports multiple network protocols in an integrated and
+	  consistent user interface.
+
+	  Currently RDP, VNC, NX, XDMCP and SSH are supported.
+
+	  http://remmina.sourceforge.net/
