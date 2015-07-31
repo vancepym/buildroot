@@ -1,0 +1,8 @@
+config BR2_PACKAGE_VLMCSD
+	bool "vlmcsd"
+	help
+	  KMS Emulator in C (currently runs on Linux including Android,
+	  FreeBSD, Solaris, Minix, Mac OS, iOS, Windows with or without
+	  Cygwin).
+
+	  http://forums.mydigitallife.info/threads/50234
