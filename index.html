@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Buildroot by vancepym</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Buildroot</h1>
+        <p class="header">Buildroot: making Embedded Linux easy</p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/vancepym/buildroot/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/vancepym/buildroot/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/vancepym/buildroot">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/vancepym">vancepym</a></p>
+
+
+      </header>
+      <section>
+        <h1>
+<a id="buildroot-making-embedded-linux-easy" class="anchor" href="#buildroot-making-embedded-linux-easy" aria-hidden="true"><span class="octicon octicon-link"></span></a>Buildroot: making Embedded Linux easy</h1>
+
+<p>Buildroot is a set of Makefiles and patches that makes it easy to generate a complete embedded Linux system. Buildroot can generate any or all of a cross-compilation toolchain, a root filesystem, a kernel image and a bootloader image. Buildroot is useful mainly for people working with small or embedded systems, using various CPU architectures (x86, ARM, MIPS, PowerPC, etc.) : it automates the building process of your embedded system and eases the cross-compilation process.</p>
+
+<h2>
+<a id="official-buildroot" class="anchor" href="#official-buildroot" aria-hidden="true"><span class="octicon octicon-link"></span></a>Official Buildroot</h2>
+
+<h3>
+<a id="buildroot-official-website" class="anchor" href="#buildroot-official-website" aria-hidden="true"><span class="octicon octicon-link"></span></a>Buildroot official website</h3>
+
+<p><a href="http://buildroot.net/">http://buildroot.net/</a></p>
+
+<h3>
+<a id="browse-official-source" class="anchor" href="#browse-official-source" aria-hidden="true"><span class="octicon octicon-link"></span></a>Browse official source</h3>
+
+<p><a href="http://git.buildroot.net/buildroot/">http://git.buildroot.net/buildroot/</a></p>
+
+<h3>
+<a id="clone-official-repository" class="anchor" href="#clone-official-repository" aria-hidden="true"><span class="octicon octicon-link"></span></a>Clone official repository</h3>
+
+<pre><code>$ git clone git://git.buildroot.net/buildroot
+</code></pre>
+
+<h2>
+<a id="customizing-for-cubieboard-20150702" class="anchor" href="#customizing-for-cubieboard-20150702" aria-hidden="true"><span class="octicon octicon-link"></span></a>Customizing for Cubieboard (2015/07/02)</h2>
+
+<h3>
+<a id="cubieboard1" class="anchor" href="#cubieboard1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cubieboard1</h3>
+
+<pre><code>$ git clone https://github.com/vancepym/buildroot.git -b cubie/master
+$ make cubieboard_defconfig
+$ make
+</code></pre>
+
+<h3>
+<a id="cubieboard2" class="anchor" href="#cubieboard2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cubieboard2</h3>
+
+<pre><code>$ git clone https://github.com/vancepym/buildroot.git -b cubie/master
+$ make cubieboard2_defconfig
+$ make
+</code></pre>
+
+<h3>
+<a id="cubieboard3" class="anchor" href="#cubieboard3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cubieboard3</h3>
+
+<pre><code>$ git clone https://github.com/vancepym/buildroot.git -b cubie/master
+$ make cubietruck_defconfig
+$ make
+</code></pre>
+
+<h2>
+<a id="customizing-for-cubieboard-20130403" class="anchor" href="#customizing-for-cubieboard-20130403" aria-hidden="true"><span class="octicon octicon-link"></span></a>Customizing for Cubieboard (2013/04/03)</h2>
+
+<pre><code>$ git clone https://github.com/vancepym/buildroot.git -b cubieboard/2013.02.x
+$ make cubieboard_defconfig
+$ make
+</code></pre>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
+  </body>
+</html>
